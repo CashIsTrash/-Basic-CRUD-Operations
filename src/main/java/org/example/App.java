@@ -48,6 +48,23 @@ public class App {
                         else
                             System.out.println(numbers);
                         break;
+						        case 3:
+                    System.out.println("UPDATE");
+                    System.out.print("SELECT NUMBER TO UPDATE FROM THE LIST: ");
+                    int numToFind = sc.nextInt();
+                    if (numbers.contains(numToFind)) {
+                        System.out.print("SELECT TO WHICH NUMBER TO UPDATE: ");
+                        int numToUpdate = sc.nextInt();
+                        for (int i = 0; i < numbers.size(); i++) {
+                            if (numbers.get(i) == (numToFind)) {
+                                numbers.set(i, numToUpdate);
+                                break;
+                            }
+                        }
+                        System.out.println(numbers);
+                    } else
+                        System.out.println("NUMBER WAS NOT FOUND!");
+                    break;
 
 
 
