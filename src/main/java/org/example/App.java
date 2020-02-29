@@ -48,36 +48,56 @@ public class App {
                         else
                             System.out.println(numbers);
                         break;
-						        case 3:
-                    System.out.println("UPDATE");
-                    System.out.print("SELECT NUMBER TO UPDATE FROM THE LIST: ");
-                    int numToFind = sc.nextInt();
-                    if (numbers.contains(numToFind)) {
-                        System.out.print("SELECT TO WHICH NUMBER TO UPDATE: ");
-                        int numToUpdate = sc.nextInt();
-                        for (int i = 0; i < numbers.size(); i++) {
-                            if (numbers.get(i) == (numToFind)) {
-                                numbers.set(i, numToUpdate);
+                    case 3:
+                        System.out.println("UPDATE");
+                        System.out.print("SELECT NUMBER TO UPDATE FROM THE LIST: ");
+                        int numToFind = sc.nextInt();
+                        if (numbers.contains(numToFind)) {
+                            System.out.print("SELECT TO WHICH NUMBER TO UPDATE: ");
+                            int numToUpdate = sc.nextInt();
+                            for (int i = 0; i < numbers.size(); i++) {
+                                if (numbers.get(i) == (numToFind)) {
+                                    numbers.set(i, numToUpdate);
+                                    break;
+                                }
+                            }
+                            System.out.println(numbers);
+                        } else
+                            System.out.println("NUMBER WAS NOT FOUND!");
+                        break;
+                    case 4:
+                        System.out.println("DELETE: ");
+                        System.out.print("SELECT NUMBER TO DELETE: ");
+                        int numToDelete = sc.nextInt();
+                        if (!numbers.contains(numToDelete))
+                            System.out.println("NUMBER WAS NOT FOUND!");
+                        else {
+                            for (int i = 0; i < numbers.size(); i++) {
+                                if (numbers.get(i) == numToDelete)
+                                    numbers.remove(i);
+                                System.out.println("NUMBER " + numToDelete + " DELETED!");
+                                System.out.println(numbers);
                                 break;
                             }
                         }
-                        System.out.println(numbers);
-                    } else
-                        System.out.println("NUMBER WAS NOT FOUND!");
-                    break;
+                        break;
+                    case 5:
+                        isRunning = false;
+                        System.out.println("EXITING...");
+                        System.exit(-1);
+                    default:
+                        System.out.println("\nPLEASE TYPE A VALID CHOICE BETWEEN [1-5]");
 
-
-
-
-
+                        break;
                 }
+                System.out.println();
+
                 message();
-                sc.close();
             }
+            sc.close();
         } catch (Exception e) {
             System.out.println("YOU DID NOT TYPE A NUMBER!");
         }
     }
+
 }
-
-
